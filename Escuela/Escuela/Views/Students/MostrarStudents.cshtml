@@ -1,0 +1,51 @@
+﻿@model List<Escuela.Dominio.Students>
+@{
+    ViewData["Title"] = "MostrarStudents";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1 class="text-center"> enrolled students </h1>
+<br />
+<table class="table table-striped table-dark">
+    <thead>
+    <th>
+        StudentId
+    </th>
+    <th>
+        LastName
+    </th>
+    <th>
+        FirstMiName
+    </th>
+    <th>
+        DateEnrollments
+    </th>
+    <th>
+        @Html.ActionLink("Agregar", "Registrar", new { id = 0 }, new { @class = "btn btn-success" })
+    </th>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@item.StudentId</td>
+                <td>@item.LastName</td>
+                <td>@item.FirstMiName</td>
+                <td>@item.EnrollmentsDate</td>
+
+                
+                    
+                
+
+                <td>
+                   
+                    @Html.ActionLink("Update", "Registrar", new { id = item.StudentId,apellido = item.LastName,nombre = item.FirstMiName,fecha = item.EnrollmentsDate }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.StudentId }, new { @class = "btn btn-danger" })
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -17,11 +17,13 @@ namespace Escuela.Controllers
         private readonly ILogger<HomeController> _logger;
         private ICourse icourse;
         private IRollements irollements;
+        private IStudents istudents;
 
-        public HomeController(ILogger<HomeController> logger, ICourse icourse, IRollements irollements)
+        public HomeController(ILogger<HomeController> logger, ICourse icourse, IRollements irollements, IStudents istudents)
         {
             this.icourse = icourse;
             this.irollements = irollements;
+            this.istudents = istudents;
             _logger = logger;
         }
 
@@ -38,31 +40,69 @@ namespace Escuela.Controllers
 
             return View(listado);
         }
+        public IActionResult GetAllForJoinJsonLing()
+        {
 
-/***************************************************************************************************************************************************/
+            var listado = irollements.UnionDeTablas();
+
+            var combinacionDeArreglos = (from union in listado
+                                         select new
+                                         {
+                                             union.Course.Title,
+                                             union.Student.LastName,
+                                             union.Student.FirstMiName,
+                                             union.grade
+
+
+                                         }).ToList();
+            return Json(new { combinacionDeArreglos });
+
+        }
+        /***************************************************************************************************************************************************/
         public IActionResult ComboBox()
         {
 
             var informationOftheCombo = icourse.ListarCursos();
-            List<SelectListItem> list = new List<SelectListItem>();
+            var informationOftheComboforStudents = istudents.ListOfStudents();
 
-            foreach (var  iterarInfo in informationOftheCombo)
+            List<SelectListItem> list = new List<SelectListItem>();
+            List<SelectListItem> listStudents = new List<SelectListItem>();
+
+            foreach (var iterarInfo in informationOftheCombo)
             {
                 list.Add(
                     new SelectListItem
                     {
                         Text = iterarInfo.Title,
                         Value = Convert.ToString(iterarInfo.CouserId)
-                    }
+                    });
 
-
-
-                    );
 
                 ViewBag.estado = list;
+
+            }
+            foreach (var iterarInfo in informationOftheComboforStudents)
+            {
+                listStudents.Add(
+                    new SelectListItem
+                    {
+                        Text = iterarInfo.FirstMiName,
+                        Value = Convert.ToString(iterarInfo.StudentId)
+                    });
+
+
+                ViewBag.estadoStudents = listStudents;
+
             }
 
             return View();
+    
+        }
+
+        public IActionResult getinformationCombobox(Enrollment e)
+        {
+            _ = e;
+            return View("ComboBox");
         }
 
 /**************************************************************************************************************************************************/

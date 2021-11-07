@@ -9,5 +9,9 @@ namespace Escuela.Servicio
     public interface IRollements
     {
         List<Enrollment> UnionDeTablas();
+
+        void Insert(Enrollment enrollment);
     }
+
+  
 }

@@ -1,4 +1,4 @@
-﻿@model Escuela.Dominio.Course
+﻿@model Escuela.Dominio.Enrollment 
  
 @{
     Layout = null;
@@ -14,12 +14,13 @@
     
 </head>
 <body>
+    @using (Html.BeginForm("", "", FormMethod.Get)) { }
 
+    @Html.DropDownListFor(a => a.CourseId, new SelectList(ViewBag.estado, "Value", "Text"), "Select a course", new { @class = "form-control" })
+    <br />
+    @Html.DropDownListFor(a => a.StudentId, new SelectList(ViewBag.estadoStudents, "Value", "Text"), "Select a students", new { @class = "form-control" })
 
-    @Html.DropDownListFor(a => a.CouserId, new SelectList(ViewBag.estado, "Value", "Text"), "Select a course", new { @class = "form-control" })
-
-
-
+    <input type="submit" />
 </body>
 </html>
 

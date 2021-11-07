@@ -18,6 +18,12 @@ namespace Escuela.Repositorio
             this.bd = bd;
         }
 
+        public void Insert(Enrollment enrollment)
+        {
+            bd.Add(enrollment);
+            bd.SaveChanges();
+        }
+
         public List<Enrollment> UnionDeTablas()
         {
             var union = bd.Enrollments.
@@ -27,5 +33,8 @@ namespace Escuela.Repositorio
 
             return union;
         }
+
+
+
     }
 }

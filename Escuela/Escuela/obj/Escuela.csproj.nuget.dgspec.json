@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carlj\\Desktop\\Escuela\\Escuela\\Escuela.csproj": {}
+    "C:\\Users\\carlj\\Documents\\GitHub\\Esscuela\\Escuela\\Escuela\\Escuela.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carlj\\Desktop\\Escuela\\Escuela\\Escuela.csproj": {
+    "C:\\Users\\carlj\\Documents\\GitHub\\Esscuela\\Escuela\\Escuela\\Escuela.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carlj\\Desktop\\Escuela\\Escuela\\Escuela.csproj",
+        "projectUniqueName": "C:\\Users\\carlj\\Documents\\GitHub\\Esscuela\\Escuela\\Escuela\\Escuela.csproj",
         "projectName": "Escuela",
-        "projectPath": "C:\\Users\\carlj\\Desktop\\Escuela\\Escuela\\Escuela.csproj",
+        "projectPath": "C:\\Users\\carlj\\Documents\\GitHub\\Esscuela\\Escuela\\Escuela\\Escuela.csproj",
         "packagesPath": "C:\\Users\\carlj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carlj\\Desktop\\Escuela\\Escuela\\obj\\",
+        "outputPath": "C:\\Users\\carlj\\Documents\\GitHub\\Esscuela\\Escuela\\Escuela\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\carlj\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "Registrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Register or update students </h1>
+<br />
+
+@using (Html.BeginForm("Save", "Students", FormMethod.Post))
+{
+    <label for="id">ID</label>
+    <br />
+    <input type="hidden" name="id" value="@ViewBag.id" />
+    <br />
+
+    <label for="apellido"> Apellido estudiante </label>
+    <br>
+    <input type="text" name="apellido" value="@ViewBag.apellido" required>
+    <br>
+
+    <label for="nombre">Nombre estudiante</label>
+    <br>
+    <input type="text" name="nombre" value="@ViewBag.nombre" required>
+    <br>
+
+
+    <label for="fecha"> Fecha </label>
+    <br>
+    <input type="text" name="fecha" value="@ViewBag.fecha" required>
+    <br>
+    <br />
+    <input type="submit" class="btn btn-success" />
+
+
+
+}
+
